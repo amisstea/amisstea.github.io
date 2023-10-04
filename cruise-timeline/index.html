@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['timeline']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var container = document.getElementById('timeline');
+        var chart = new google.visualization.Timeline(container);
+        var dataTable = new google.visualization.DataTable();
+
+        dataTable.addColumn({ type: 'string', id: 'Ship' });
+        dataTable.addColumn({ type: 'string', id: 'Name' });
+        dataTable.addColumn({ type: 'date', id: 'Start' });
+        dataTable.addColumn({ type: 'date', id: 'End' });
+        dataTable.addRows([
+          [ '1', 'Norwegian Joy', new Date(2023, 9, 13, 8), new Date(2023, 9, 14, 17) ],
+          [ '2', 'Disney Dream',  new Date(2023, 9, 15, 8),  new Date(2023, 9, 15, 17) ],
+          [ '3', 'Liberty of the Seas',  new Date(2023, 9, 16, 9),  new Date(2023, 9, 17, 16, 30) ],
+          [ '4', 'Scenic Eclipse 2',  new Date(2023, 9, 16, 8),  new Date(2023, 9, 18, 19) ],
+          [ '5', 'Mariner of the Seas',  new Date(2023, 9, 16, 17, 15),  new Date(2023, 9, 17, 15) ],
+          [ '6', 'The World',  new Date(2023, 9, 17, 8),  new Date(2023, 9, 18, 17) ],
+          [ '7', 'Norwegian Joy',  new Date(2023, 9, 18, 8),  new Date(2023, 9, 18, 15, 30) ],
+          [ '8', 'Balmoral',  new Date(2023, 9, 19, 8),  new Date(2023, 9, 19, 17) ]
+        ]);
+
+        var options = {
+          timeline: { showRowLabels: true }
+        };
+
+        chart.draw(dataTable, options);
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Bermuda Cruise Timeline Oct 13-20</h1>
+    <div id="timeline" style="height: 700px;"></div>
+  </body>
+</html>
